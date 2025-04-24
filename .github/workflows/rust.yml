@@ -63,4 +63,4 @@ jobs:
           toolchain: stable
           override: true
       - run: cargo install cargo-audit
-      - run: cargo clippy -- -D warnings
+      - run: cargo audit
