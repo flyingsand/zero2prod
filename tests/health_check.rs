@@ -37,6 +37,7 @@ async fn subscribe_returns_a_200_for_valid_form_data() {
         .await
         .expect("Failed to execute request.");
 
+    assert!(response.status().is_success());
     //断言
     assert_eq!(200, response.status().as_u16());
 }
@@ -66,6 +67,7 @@ async fn subscribe_returns_a_400_when_data_is_missing() {
             400,
             response.status().as_u16(),
             "The API did not fail with 400 Bad Request when the payload was {}.",
-            error_message);
+            error_message
+        );
     }
 }
